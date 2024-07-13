@@ -1,0 +1,33 @@
+{
+    "name": "TGMessageStore",
+    "description": "Inline Telegram bot to Search Multiple Movie Databases",
+    "keywords": [
+        "Go",
+        "filmigo",
+        "Telegram"
+    ],
+    "website": "https://github.com/Jisin0",
+    "repository": "https://github.com/Jisin0/TGMessageStore",
+    "success_url": "https://telegram.dog/Jisin0",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "Your Bot Token From @BotFather",
+            "value": ""
+        },
+        "DEFAULT_SEARCH_METHOD": {
+            "description": "The default method to use for inline search. Possible values are jw, imdb & omdb.",
+            "value": ""
+        }
+    },
+    "buildpacks": [
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-go.git"
+        }
+    ],
+    "formation": {
+        "web": {
+            "quantity": 1,
+            "size": "eco"
+        }
+    }
+}

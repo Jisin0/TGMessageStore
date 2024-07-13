@@ -1,0 +1,14 @@
+services :
+   - type : web
+     name : TGMessageStore
+     runtime : go
+     repo : https://github.com/Jisin0/TGMessageStore.git
+     buildCommand: go build .
+     startCommand: ./TGMessageStore
+     envVars :
+       - key : BOT_TOKEN
+         value : your-bots-token
+       - key : DEFAULT_SEARCH_METHOD
+         value: jw
+       - key : PORT
+         value : 10000

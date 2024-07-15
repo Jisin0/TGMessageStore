@@ -1,7 +1,7 @@
 # TGMessageStore
 [![telegram badge](https://img.shields.io/badge/Telegram-Channel-30302f?style=flat&logo=telegram)](https://telegram.dog/FractalProjects)
 [![Go Report Card](https://goreportcard.com/badge/github.com/Jisin0/TGMessageStore)](https://goreportcard.com/report/github.com/Jisin0/TGMessageStore)
-[![Go Build](https://github.com/Jisin0/TGMessageStore/workflows/Build/badge.svg)](https://github.com/Jisin0/TGMessageStore/actions?query=workflow%3ABuild+event%3Apush+branch%3Amain)
+[![Go Build](https://github.com/Jisin0/TGMessageStore/workflows/build/badge.svg)](https://github.com/Jisin0/TGMessageStore/actions?query=workflow%3Abuild+event%3Apush+branch%3Amain)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 [**TGMessageStore** ](https://TGMessageStore.vercel.app) is a serverless telegram bot to generate permanent shareable links to a single or batch of messages.

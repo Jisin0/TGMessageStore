@@ -1,8 +1,14 @@
 // (c) Jisin0
 //
-// File text.go contains constant texts used across different commands.
+// File config/text.go contains constant texts used across different commands.
 
 package config
+
+import (
+	"strings"
+
+	"github.com/PaulSonOfLars/gotgbot/v2"
+)
 
 // Standard command replies. Add a new entry to create new command no extra configs needed.
 var Commands map[string]string = map[string]string{
@@ -30,3 +36,15 @@ var Commands map[string]string = map[string]string{
 
 // Message that is sent when an unrecognized command is sent.
 var CommandNotFound = "<i>😐 I don't recognize that command !\nCheck /help to see how to use me.</i>"
+
+// GetCommand returns the content for a command.
+func GetCommand(command string) (string, [][]gotgbot.InlineKeyboardButton) {
+	command = strings.ToUpper(command)
+
+	text, ok := Commands[command]
+	if !ok {
+		text = CommandNotFound // default msg if not found
+	}
+
+	return text, Buttons[command]
+}

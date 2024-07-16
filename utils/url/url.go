@@ -1,8 +1,8 @@
 // (c) Jisin0
 //
-// File containing methods to encode and decode batch links' data.
+// containing methods to encode and decode batch links' data.
 
-package utils
+package url
 
 import (
 	"encoding/base64"
@@ -16,13 +16,13 @@ import (
 )
 
 // EncodeURL encodes the input data into a neat base64 encoded string to use as a start parameter.
-func EncodeURL(chatID, startMsgID, endMsgID int64) string {
+func EncodeData(chatID, startMsgID, endMsgID int64) string {
 	// Structure of data -> copy_<chat_id>_<start_id>_<end_id>
 	return base64.StdEncoding.EncodeToString([]byte(fmt.Sprintf("copy_%d_%d_%d", chatID, startMsgID, endMsgID)))
 }
 
 // DecodeURL decodes the input data from a start query.
-func DecodeURL(data string) (chatID, startMsgID, endMsgID int64, err error) {
+func DecodeData(data string) (chatID, startMsgID, endMsgID int64, err error) {
 	decodedBytes, err := base64.StdEncoding.DecodeString(data)
 	if err != nil {
 		fmt.Printf("utils.decodeurl: %v\n", err)
@@ -33,7 +33,7 @@ func DecodeURL(data string) (chatID, startMsgID, endMsgID int64, err error) {
 
 	// Handle codex repo urls
 	if strings.HasPrefix(decodedString, "get-") {
-		return decodeCodexURL(decodedString)
+		return decodeCodexData(decodedString)
 	}
 
 	if !strings.HasPrefix(decodedString, "copy_") {
@@ -59,7 +59,7 @@ func DecodeURL(data string) (chatID, startMsgID, endMsgID int64, err error) {
 }
 
 // decodeCodexURL provides backward compatibility for urls generated with the CodeXBots/File-Sharing-Bot repo.
-func decodeCodexURL(input string) (chatID, startMsgID, endMsgID int64, err error) {
+func decodeCodexData(input string) (chatID, startMsgID, endMsgID int64, err error) {
 	if config.DBChannel == 0 {
 		return chatID, startMsgID, endMsgID, errors.New("DB_CHANNEL value not set")
 	}

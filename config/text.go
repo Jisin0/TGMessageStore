@@ -1,6 +1,6 @@
 // (c) Jisin0
 //
-// File config/text.go contains constant texts used across different commands.
+// config/text.go contains constant texts used across different commands.
 
 package config
 

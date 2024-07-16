@@ -1,6 +1,6 @@
 // (c) Jisin0
 //
-// File config/buttons.go contains basic commands buttons.
+// config/buttons.go contains basic commands buttons.
 
 package config
 

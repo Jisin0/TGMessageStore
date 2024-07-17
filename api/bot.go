@@ -6,7 +6,6 @@ import (
 	"io"
 	"net/http"
 	"os"
-	"path"
 	"strings"
 
 	"github.com/Jisin0/TGMessageStore/plugins"
@@ -27,7 +26,14 @@ const (
 func Bot(w http.ResponseWriter, r *http.Request) {
 	url := r.URL.Path
 
-	_, botToken := path.Split(url)
+	split := strings.Split(url, "/")
+	if len(split) < 2 {
+		fmt.Println(w, "url path too short")
+		w.WriteHeader(statusCodeSuccess)
+		return
+	}
+
+	botToken := split[len(split)-2]
 
 	bot, _ := gotgbot.NewBot(botToken, &gotgbot.BotOpts{DisableTokenCheck: true})
 
@@ -56,6 +62,8 @@ func Bot(w http.ResponseWriter, r *http.Request) {
 
 		return
 	}
+
+	bot.Username = split[len(split)-1]
 
 	err = plugins.Dispatcher.ProcessUpdate(bot, &update, map[string]interface{}{})
 	if err != nil {

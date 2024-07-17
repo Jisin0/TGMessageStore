@@ -64,12 +64,24 @@
       let currentUrl = window.location.origin;
       // Use default url if null
       if (currentUrl=='null') {
-        currentUrl = 'https://TGMessageStore.vercel.app';
+        currentUrl = 'https://tg-message-store.vercel.app';
       }
 
-      const webhookUrl = `${currentUrl}/bot/${botToken}`;
-
       try {
+        const resp = await fetch('https://api.telegram.org/bot' + botToken + '/getme', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' }
+        });
+
+        const getme = await resp.json();
+
+        if (!getme.ok) {
+          showError(getme.description);
+          return;
+        }
+
+      const webhookUrl = `${currentUrl}/bot/${botToken}/${getme.result.username}`;
+
         const response = await fetch('https://api.telegram.org/bot' + botToken + '/setWebhook', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

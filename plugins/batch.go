@@ -52,7 +52,7 @@ func Batch(bot *gotgbot.Bot, ctx *ext.Context) error {
 	if err != nil {
 		chatID, err = helpers.IDFromUsername(bot, chatString)
 		if err != nil {
-			update.Reply(bot, config.BatchUnknownChat, &gotgbot.SendMessageOpts{})
+			update.Reply(bot, config.BatchUnknownChat, &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML})
 			return nil
 		}
 	} else {
@@ -60,7 +60,7 @@ func Batch(bot *gotgbot.Bot, ctx *ext.Context) error {
 
 		_, err := bot.GetChat(chatID, &gotgbot.GetChatOpts{})
 		if err != nil {
-			update.Reply(bot, config.BatchUnknownChat, &gotgbot.SendMessageOpts{})
+			update.Reply(bot, config.BatchUnknownChat, &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML})
 			return nil
 		}
 	}

@@ -12,16 +12,11 @@ import (
 
 	"github.com/Jisin0/TGMessageStore/config"
 	"github.com/Jisin0/TGMessageStore/utils/auth"
-	"github.com/Jisin0/TGMessageStore/utils/cache"
 	"github.com/Jisin0/TGMessageStore/utils/format"
 	"github.com/Jisin0/TGMessageStore/utils/helpers"
 	"github.com/Jisin0/TGMessageStore/utils/url"
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
-)
-
-var (
-	userNameCache = cache.NewMapCache()
 )
 
 // Batch handles the /batch command.
@@ -70,24 +65,7 @@ func Batch(bot *gotgbot.Bot, ctx *ext.Context) error {
 		}
 	}
 
-	// Get the username of the bot.
-	username := bot.Username
-	if username == "" {
-		var ok bool
-
-		username, ok = userNameCache.Get(bot.Token)
-		if !ok {
-			me, err := bot.GetMe(&gotgbot.GetMeOpts{})
-			if err != nil {
-				fmt.Println(err)
-			}
-
-			username = me.Username
-			userNameCache.Set(bot.Token, username)
-		}
-	}
-
-	link := fmt.Sprintf("https://t.me/%s?start=%s", username, url.EncodeData(chatID, startID, endID))
+	link := fmt.Sprintf("https://t.me/%s?start=%s", bot.Username, url.EncodeData(chatID, startID, endID))
 
 	update.Reply(bot, format.BasicFormat(config.BatchSuccess, user, map[string]string{"link": link}), &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML})
 	return ext.EndGroups

@@ -37,5 +37,5 @@ func CbCommand(bot *gotgbot.Bot, ctx *ext.Context) error {
 		fmt.Println(err)
 	}
 
-	return nil
+	return ext.EndGroups
 }

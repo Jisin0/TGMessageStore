@@ -12,6 +12,7 @@ import (
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
+	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers/filters/callbackquery"
 )
 
 var Dispatcher *ext.Dispatcher = ext.NewDispatcher(&ext.DispatcherOpts{
@@ -31,6 +32,8 @@ const (
 func init() {
 	Dispatcher.AddHandlerToGroup(handlers.NewCommand("start", Start), commandHandlerGroup)
 	Dispatcher.AddHandlerToGroup(handlers.NewCommand("batch", Batch), commandHandlerGroup)
+
+	Dispatcher.AddHandlerToGroup(handlers.NewCallback(callbackquery.Prefix("cmd_"), CbCommand), callbackHandlerGroup)
 
 	// Static Commands.
 	Dispatcher.AddHandlerToGroup(handlers.NewMessage(allCommand, CommandHandler), commandHandlerGroup)

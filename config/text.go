@@ -62,9 +62,9 @@ var (
 <b>Usage</b>
 Add the bot to your channel and copy the link of the first and last post(including) from the channel;
 <b>Format</b>
-<code>/batch start_post_link end_post_link
+<code>/batch start_post_link end_post_link</code>
 <b>Example</b>
-<code>/batch https://t.me/c/123456789/69 https://t.me/c/123456789/100
+<code>/batch https://t.me/c/123456789/69 https://t.me/c/123456789/100</coed>
 </blockquote>`
 
 	// Unable to access source channel
@@ -72,4 +72,18 @@ Add the bot to your channel and copy the link of the first and last post(includi
 
 	// Batch link was successfully generated.
 	BatchSuccess = "<i>🎉 Here is your link :</i>\n<code>{link}</code>\n<a href='{link}'>Tap To Open</a>"
+)
+
+// Genlink command texts.
+// Error and success messages are same as batch.
+var (
+	GenlinkBadUsage = `<i>🤧 Command Usage was <b>Incorrect</b> !</i>
+<blockquote expandable>
+<b>Usage</b>
+Add the bot to your channel and forward the post and use this command as a reply or copy the link of the post from the channel;
+<b>Format</b>
+<code>/genlink post_link</code>
+<b>Example</b>
+<code>/genlink https://t.me/c/123456789/69</code>
+</blockquote>`
 )

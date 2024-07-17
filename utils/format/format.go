@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/Jisin0/TGMessageStore/utils/helpers"
 	"github.com/PaulSonOfLars/gotgbot/v2"
 )
 
@@ -47,7 +48,7 @@ func FormatString(format string, values map[string]string) string {
 }
 
 // BasicFormat formats a string with the mention, name and user_id values.
-func BasicFormat(format string, user *gotgbot.User) string {
+func BasicFormat(format string, user *gotgbot.User, extraParams ...map[string]string) string {
 	if user == nil {
 		return format
 	}
@@ -66,6 +67,10 @@ func BasicFormat(format string, user *gotgbot.User) string {
 		"user_id": userID,
 		"name":    name,
 		"mention": mention,
+	}
+
+	if len(extraParams) > 0 {
+		helpers.MergeMaps(values, extraParams[0])
 	}
 
 	return FormatString(format, values)

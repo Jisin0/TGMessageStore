@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/Jisin0/TGMessageStore/plugins"
+	"github.com/Jisin0/TGMessageStore/utils/helpers"
 	"github.com/PaulSonOfLars/gotgbot/v2"
 )
 
@@ -31,7 +32,7 @@ func Bot(w http.ResponseWriter, r *http.Request) {
 	bot, _ := gotgbot.NewBot(botToken, &gotgbot.BotOpts{DisableTokenCheck: true})
 
 	// Delete the webhook incase token is unauthorized.
-	if lenAllowedTokens > 0 && allowedTokens[0] != "" && !plugins.Contains(allowedTokens, botToken) {
+	if lenAllowedTokens > 0 && allowedTokens[0] != "" && !helpers.Contains(allowedTokens, botToken) {
 		bot.DeleteWebhook(&gotgbot.DeleteWebhookOpts{}) //nolint:errcheck // It doesn't matter if it errors
 		w.WriteHeader(statusCodeSuccess)
 

@@ -7,7 +7,7 @@ package config
 import "github.com/PaulSonOfLars/gotgbot/v2"
 
 var Buttons map[string][][]gotgbot.InlineKeyboardButton = map[string][][]gotgbot.InlineKeyboardButton{
-	"ABOUT": {{homeButton, helpButton}, {{Text: "Source 🔗", Url: "https://github.com/Jisin0/filmigobot"}}},
+	"ABOUT": {{homeButton, helpButton}, {{Text: "Source 🔗", Url: "https://github.com/Jisin0/TGMessageStore"}}},
 	"HELP":  {{aboutButton, homeButton}},
 }
 

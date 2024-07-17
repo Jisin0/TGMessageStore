@@ -7,8 +7,11 @@ import (
 	"strings"
 	"unicode/utf8"
 
+	"github.com/Jisin0/TGMessageStore/config"
+	"github.com/Jisin0/TGMessageStore/utils/format"
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
+	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
 )
 
 var Dispatcher *ext.Dispatcher = ext.NewDispatcher(&ext.DispatcherOpts{
@@ -26,10 +29,39 @@ const (
 )
 
 func init() {
-	// Dispatcher.AddHandlerToGroup(handlers.NewCommand("start", Start), commandHandlerGroup)
+	Dispatcher.AddHandlerToGroup(handlers.NewCommand("start", Start), commandHandlerGroup)
+	Dispatcher.AddHandlerToGroup(handlers.NewCommand("start", Batch), commandHandlerGroup)
 
-	// // Static Commands.
-	// Dispatcher.AddHandlerToGroup(handlers.NewMessage(allCommand, CommandHandler), commandHandlerGroup)
+	// Static Commands.
+	Dispatcher.AddHandlerToGroup(handlers.NewMessage(allCommand, CommandHandler), commandHandlerGroup)
+}
+
+// CommandHandler any unhandled commands
+func CommandHandler(bot *gotgbot.Bot, ctx *ext.Context) error {
+	update := ctx.EffectiveMessage
+	user := ctx.EffectiveUser
+
+	cmd := strings.ToUpper(strings.Split(strings.ToLower(strings.Fields(update.GetText())[0]), "@")[0][1:])
+
+	var text string
+	if s, k := config.Commands[cmd]; k {
+		text = s
+	} else {
+		if update.Chat.Type != gotgbot.ChatTypePrivate {
+			return nil
+		}
+
+		text = config.Commands["NOTFOUND"]
+	}
+
+	text = format.BasicFormat(text, user)
+
+	_, err := bot.SendMessage(update.Chat.Id, text, &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML, LinkPreviewOptions: &gotgbot.LinkPreviewOptions{IsDisabled: true}, ReplyMarkup: gotgbot.InlineKeyboardMarkup{InlineKeyboard: config.Buttons[cmd]}})
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	return nil
 }
 
 func allCommand(msg *gotgbot.Message) bool {

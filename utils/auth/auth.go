@@ -10,8 +10,8 @@ import "github.com/Jisin0/TGMessageStore/config"
 // It returns true if ALLOW_PUBLIC is set to true or checks the Admins list.
 // An empty admin list would also result in a success.
 func CheckUser(userID int64) bool {
-	if !config.AllowPublic {
-		return false
+	if config.AllowPublic {
+		return true
 	}
 
 	for _, i := range config.Admins {

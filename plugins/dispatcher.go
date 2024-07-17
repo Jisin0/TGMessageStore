@@ -51,7 +51,7 @@ func CommandHandler(bot *gotgbot.Bot, ctx *ext.Context) error {
 			return nil
 		}
 
-		text = config.Commands["NOTFOUND"]
+		text = config.CommandNotFound
 	}
 
 	text = format.BasicFormat(text, user)

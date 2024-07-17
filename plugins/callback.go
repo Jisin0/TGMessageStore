@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/Jisin0/TGMessageStore/config"
+	"github.com/Jisin0/TGMessageStore/utils/format"
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 )
@@ -16,6 +17,7 @@ import (
 // CbCommand handles callback from command buttons.
 func CbCommand(bot *gotgbot.Bot, ctx *ext.Context) error {
 	update := ctx.CallbackQuery
+	user := ctx.EffectiveUser
 
 	split := strings.SplitN(update.Data, "_", 2)
 	if len(split) < 2 {
@@ -31,6 +33,8 @@ func CbCommand(bot *gotgbot.Bot, ctx *ext.Context) error {
 	if !ok {
 		text = config.CommandNotFound
 	}
+
+	text = format.BasicFormat(text, user)
 
 	_, _, err := update.Message.EditText(bot, text, &gotgbot.EditMessageTextOpts{ParseMode: gotgbot.ParseModeHTML, ReplyMarkup: gotgbot.InlineKeyboardMarkup{InlineKeyboard: config.Buttons[cmd]}, LinkPreviewOptions: &gotgbot.LinkPreviewOptions{IsDisabled: true}})
 	if err != nil {

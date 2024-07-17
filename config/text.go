@@ -62,7 +62,7 @@ var (
 <b>Usage</b>
 Add the bot to your channel and copy the link of the first and last post(including) from the channel;
 <b>Format</b>
-<code>/batch <start_post_link> <end_post_link>
+<code>/batch start_post_link end_post_link
 <b>Example</b>
 <code>/batch https://t.me/c/123456789/69 https://t.me/c/123456789/100
 </blockquote>`

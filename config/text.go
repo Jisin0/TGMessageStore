@@ -28,7 +28,7 @@ Hey there partner !
 
 /start : Start the bot.
 /batch : Create a new message batch.
-/genlink : Generate link for a single post.
+/genlink : Create link for a single post.
 /about : Get some data about the bot.
 /help  : Display this help message.
 /privacy: Leran how this bot uses your data.

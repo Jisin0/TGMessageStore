@@ -12,6 +12,9 @@ import (
 
 // Standard command replies. Add a new entry to create new command no extra configs needed.
 var Commands map[string]string = map[string]string{
+	"START": `
+Hey there partner !
+`,
 	"ABOUT": `
 ○ <b>Language</b>: <a href='https://go.dev'>GO</a>
 ○ <b>Library</b>: <a href='https://github.com/PaulSonOfLars/gotgbot'>GoTgbot</a>

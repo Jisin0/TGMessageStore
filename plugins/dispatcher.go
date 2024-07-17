@@ -30,7 +30,7 @@ const (
 
 func init() {
 	Dispatcher.AddHandlerToGroup(handlers.NewCommand("start", Start), commandHandlerGroup)
-	Dispatcher.AddHandlerToGroup(handlers.NewCommand("start", Batch), commandHandlerGroup)
+	Dispatcher.AddHandlerToGroup(handlers.NewCommand("batch", Batch), commandHandlerGroup)
 
 	// Static Commands.
 	Dispatcher.AddHandlerToGroup(handlers.NewMessage(allCommand, CommandHandler), commandHandlerGroup)

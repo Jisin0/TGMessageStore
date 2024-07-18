@@ -64,7 +64,7 @@ Add the bot to your channel and copy the link of the first and last post(includi
 <b>Format</b>
 <code>/batch start_post_link end_post_link</code>
 <b>Example</b>
-<code>/batch https://t.me/c/123456789/69 https://t.me/c/123456789/100</coed>
+<code>/batch https://t.me/c/123456789/69 https://t.me/c/123456789/100</code>
 </blockquote>`
 
 	// Unable to access source channel

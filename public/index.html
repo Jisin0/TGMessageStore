@@ -11,7 +11,6 @@
         html {
             margin: 0;
             padding: 0;
-            overflow: hidden;
         }
 
         body {
@@ -145,7 +144,7 @@
             <h2 class="text-xl font-mono text-yellow-400 mb-4 hover:underline focus:underline" id="setup">Setup</h2>
             <ol class="list-decimal ml-6 mb-6">
                 <li class="mb-2">
-                    Go to <a href="https://t.me/botfather" target="_blank" class="text-blue-400 hover:text-blue-300">BotFather</a> and create a new bot or choose an existing one.
+                    Go to <a href="tg://resolve?domain=botfather" target="_blank" class="text-blue-400 hover:text-blue-300">BotFather</a> and create a new bot or choose an existing one.
                 </li>
                 <li class="mb-2">Copy the bot token and paste it into the <a href="#botToken" class="text-blue-400">input</a> above.</li>
                 <li class="mb-2">Click connect and your bot is all set up.</li>
@@ -257,7 +256,7 @@
             <div class="text-center">
               <h1 class="text-4xl font-bold text-green-500 mb-4">Success 🎉</h1>
               <p class="text-xl text-green-500">Bot Connected Successfully!</p>
-              <p class="text-base text-gray-400 mt-4">Add the Bot to Your Channel Before you Start Using it.</p>
+              <p class="text-base text-gray-400 mt-4">Customize Your bot from <a href='tg://resolve?domain=bofather&start=${getme.result.username}' class='text-blue-400'>@botfather</a> to Add Your Personal Touch.</p>
             </div>
           `;
                     // Start confetti animation

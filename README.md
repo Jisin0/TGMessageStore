@@ -22,6 +22,7 @@ privacy - Read about the privacy policy.
 - `ADMINS` : Optional. List of telegram IDs of users allowed to create links with the bot, seperated by spaces.
 - `ALLOW_PUBLIC` :  Optional. Set this to __true__ to allow anyone to create batch links.
 - `PROTECT_CONTENT`: Optional. Set this to __true__ to prevent users from forwarding/copying content from the bot.
+- `BATCH_SIZE_LIMIT`: Optional. Maximum number of messages allowed in a batch.
 - `DISABLE_NOTIFICATION`: Optional. Set this to __true__ to send messages without a notification.
 
 ## Deploy

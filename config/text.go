@@ -62,6 +62,9 @@ Add the bot to your channel and copy the link of the first and last post(includi
 
 	// Batch link was successfully generated.
 	BatchSuccess = "<i>🎉 Here is your link :</i>\n<code>{link}</code>\n<a href='{link}'>Tap To Open</a>"
+
+	// Batch exceeds size limit.
+	BatchTooLarge = "<i>🫣 You can't make a batch that big my limit is {limit} !</i>"
 )
 
 // Genlink command texts.

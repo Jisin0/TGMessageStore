@@ -73,6 +73,6 @@ func GenLink(bot *gotgbot.Bot, ctx *ext.Context) error {
 
 	link := fmt.Sprintf("https://t.me/%s?start=%s", bot.Username, url.EncodeData(chatID, messageID, messageID))
 
-	update.Reply(bot, format.BasicFormat(config.BatchSuccess, user, map[string]string{"link": link}), &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML})
+	update.Reply(bot, format.BasicFormat(config.BatchSuccess, user, map[string]any{"link": link}), &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML})
 	return ext.EndGroups
 }

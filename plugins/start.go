@@ -46,6 +46,11 @@ func sendBatch(bot *gotgbot.Bot, inputMessage *gotgbot.Message, chatID, startID,
 		return
 	}
 
+	if endID-startID > config.BatchSizeLimit {
+		statMessage.EditText(bot, format.BasicFormat(config.BatchTooLarge, inputMessage.From, map[string]any{"limit": config.BatchSizeLimit}), &gotgbot.EditMessageTextOpts{ParseMode: gotgbot.ParseModeHTML})
+		return
+	}
+
 	for i := startID; i <= endID; i++ {
 		_, err := bot.CopyMessage(inputMessage.Chat.Id, chatID, i, &gotgbot.CopyMessageOpts{ProtectContent: config.ProtectContent, DisableNotification: config.DisableNotification})
 		if err != nil {

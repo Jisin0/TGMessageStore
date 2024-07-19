@@ -7,6 +7,7 @@ services:
       DISABLE_NOTIFICATION: $DISABLE_NOTIFICATION
       ALLOW_PUBLIC: $ALLOW_PUBLIC
       ADMINS: $ADMINS
+      BATCH_SIZE_LIMIT: $BATCH_SIZE_LIMIT
     resources:
       cpu: 1000m
       memory: 1Gi

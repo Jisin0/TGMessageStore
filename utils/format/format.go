@@ -13,7 +13,7 @@ import (
 )
 
 // FormatString returns a string formatted with the values from the values.
-func FormatString(format string, values map[string]string) string {
+func FormatString(format string, values map[string]any) string {
 	if len(values) < 1 {
 		return format
 	}
@@ -32,7 +32,7 @@ func FormatString(format string, values map[string]string) string {
 
 			key := format[i+1 : i+end]
 			if value, ok := values[key]; ok {
-				result.WriteString(value)
+				result.WriteString(fmt.Sprint(value))
 			} else {
 				result.WriteString(format[i : i+end+1])
 			}
@@ -48,7 +48,7 @@ func FormatString(format string, values map[string]string) string {
 }
 
 // BasicFormat formats a string with the mention, name and user_id values.
-func BasicFormat(format string, user *gotgbot.User, extraParams ...map[string]string) string {
+func BasicFormat(format string, user *gotgbot.User, extraParams ...map[string]any) string {
 	if user == nil {
 		return format
 	}
@@ -63,7 +63,7 @@ func BasicFormat(format string, user *gotgbot.User, extraParams ...map[string]st
 		mention = fmt.Sprintf("<a href='tg://user?id=%d'>%s</a>", user.Id, name)
 	}
 
-	values := map[string]string{
+	values := map[string]any{
 		"user_id": userID,
 		"name":    name,
 		"mention": mention,

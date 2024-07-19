@@ -3,7 +3,9 @@
     "description": "Inline Telegram bot to Search Multiple Movie Databases",
     "keywords": [
         "Go",
-        "filmigo",
+        "fileshare",
+        "filestore",
+        "messagestore",
         "Telegram"
     ],
     "website": "https://github.com/Jisin0",
@@ -28,6 +30,10 @@
         },
         "DISABLE_NOTIFICATION": {
             "description": "Set this to true to send messages without a notification.",
+            "value": ""
+        },
+        "BATCH_SIZE_LIMIT": {
+            "description": "Maximum number of messages allowed in a batch.",
             "value": ""
         }
     },

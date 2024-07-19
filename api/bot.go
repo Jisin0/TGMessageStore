@@ -65,7 +65,7 @@ func Bot(w http.ResponseWriter, r *http.Request) {
 
 	bot.Username = split[len(split)-1]
 
-	err = plugins.Dispatcher.ProcessUpdate(bot, &update, map[string]interface{}{})
+	err = plugins.Dispatcher.ProcessUpdate(bot, &update, map[string]any{})
 	if err != nil {
 		fmt.Printf("error while processing update: %v", err)
 	}

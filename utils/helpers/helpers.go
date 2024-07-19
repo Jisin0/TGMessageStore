@@ -28,7 +28,7 @@ func IDFromUsername(bot *gotgbot.Bot, username string) (int64, error) {
 }
 
 // MergeMaps just concatenates two maps.
-func MergeMaps(dest, src map[string]string) {
+func MergeMaps(dest, src map[string]any) {
 	for key, value := range src {
 		dest[key] = value
 	}

@@ -45,20 +45,11 @@ func CommandHandler(bot *gotgbot.Bot, ctx *ext.Context) error {
 
 	cmd := strings.ToUpper(strings.Split(strings.ToLower(strings.Fields(update.GetText())[0]), "@")[0][1:])
 
-	var text string
-	if s, k := config.Commands[cmd]; k {
-		text = s
-	} else {
-		if update.Chat.Type != gotgbot.ChatTypePrivate {
-			return nil
-		}
-
-		text = config.CommandNotFound
-	}
+	text, buttons := config.GetCommand(cmd)
 
 	text = format.BasicFormat(text, user)
 
-	_, err := bot.SendMessage(update.Chat.Id, text, &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML, LinkPreviewOptions: &gotgbot.LinkPreviewOptions{IsDisabled: true}, ReplyMarkup: gotgbot.InlineKeyboardMarkup{InlineKeyboard: config.Buttons[cmd]}})
+	_, err := bot.SendMessage(update.Chat.Id, text, &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML, LinkPreviewOptions: &gotgbot.LinkPreviewOptions{IsDisabled: true}, ReplyMarkup: gotgbot.InlineKeyboardMarkup{InlineKeyboard: buttons}})
 	if err != nil {
 		fmt.Println(err)
 	}

@@ -5,7 +5,6 @@
 package plugins
 
 import (
-	"encoding/base64"
 	"fmt"
 	"strings"
 
@@ -27,16 +26,7 @@ func Start(bot *gotgbot.Bot, ctx *ext.Context) error {
 		return nil
 	}
 
-	rawData, err := base64.RawStdEncoding.DecodeString(split[1])
-	if err != nil {
-		fmt.Println(err)
-		update.Reply(bot, format.BasicFormat(config.InvalidLink, user), &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML})
-		return nil
-	}
-
-	startData := string(rawData)
-
-	chatID, startID, endID, err := url.DecodeData(startData)
+	chatID, startID, endID, err := url.DecodeData(split[1])
 	if err != nil {
 		fmt.Println(err)
 		update.Reply(bot, format.BasicFormat(config.InvalidLink, user), &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML})

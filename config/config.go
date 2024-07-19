@@ -12,9 +12,11 @@ import (
 )
 
 var (
-	DBChannel   = int64Environ("DB_CHANNEL")                             // id of database channel
-	Admins      = int64ListEnviron("ADMINS")                             // admins list
-	AllowPublic = os.Getenv("ALLOW_PUBLIC") == "true" || len(Admins) < 1 // indicates wether anyone can use the bot
+	DBChannel           = int64Environ("DB_CHANNEL")                                              // id of database channel
+	Admins              = int64ListEnviron("ADMINS")                                              // admins list
+	DisableNotification = strings.ToLower(os.Getenv("DISABLE_NOTIFICATION")) == "true"            // messages will be sent without a notification
+	ProtectContent      = strings.ToLower(os.Getenv("PUBLIC_CONTENT")) == "true"                  // disable forwarding content from bot
+	AllowPublic         = strings.ToLower(os.Getenv("ALLOW_PUBLIC")) == "true" || len(Admins) < 1 // indicates wether anyone can use the bot
 )
 
 // int64Environ gets a environment variable and attempts to cast it into an int64.

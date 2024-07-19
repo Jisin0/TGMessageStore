@@ -3,7 +3,8 @@ services:
     build: .
     environment:
       BOT_TOKEN: $BOT_TOKEN
-      DEFAULT_SEARCH_METHOD: $DEFAULT_SEARCH_METHOD
+      PROTECT_CONTENT: $PROTECT_CONTENT
+      DISABLE_NOTIFICATION: $DISABLE_NOTIFICATION
     resources:
       cpu: 1000m
-      memory: 3Gi
+      memory: 1Gi

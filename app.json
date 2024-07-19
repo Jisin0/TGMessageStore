@@ -14,8 +14,12 @@
             "description": "Your Bot Token From @BotFather",
             "value": ""
         },
-        "DEFAULT_SEARCH_METHOD": {
-            "description": "The default method to use for inline search. Possible values are jw, imdb & omdb.",
+        "PROTECT_CONTENT": {
+            "description": "Set this to true to prevent users from forwarding/copying content from the bot",
+            "value": ""
+        },
+        "DISABLE_NOTIFICATION": {
+            "description": "Set this to true to send messages without a notification.",
             "value": ""
         }
     },

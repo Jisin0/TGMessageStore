@@ -19,6 +19,8 @@ privacy - Read about the privacy policy.
 ## Variables
 
 - `BOT_TOKEN`  : Optional. On vercel, a list of bot tokens allowed to connect to the app or leave empty allow anyone to connect. On servers, a single bot token.
+- `PROTECT_CONTENT`: Optional. Set this to __true__ to prevent users from forwarding/copying content from the bot.
+- `DISABLE_NOTIFICATION`: Optional. Set this to __true__ to send messages without a notification.
 
 ## Deploy
 Deploy your own **TGMessageStore** app to vercel

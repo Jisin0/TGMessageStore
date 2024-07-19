@@ -47,7 +47,7 @@ func sendBatch(bot *gotgbot.Bot, inputMessage *gotgbot.Message, chatID, startID,
 	}
 
 	for i := startID; i <= endID; i++ {
-		_, err := bot.CopyMessage(inputMessage.Chat.Id, chatID, i, &gotgbot.CopyMessageOpts{})
+		_, err := bot.CopyMessage(inputMessage.Chat.Id, chatID, i, &gotgbot.CopyMessageOpts{ProtectContent: config.ProtectContent, DisableNotification: config.DisableNotification})
 		if err != nil {
 			switch {
 			case strings.Contains(err.Error(), "chat not found"):

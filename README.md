@@ -19,6 +19,8 @@ privacy - Read about the privacy policy.
 ## Variables
 
 - `BOT_TOKEN`  : Optional. On vercel, a list of bot tokens allowed to connect to the app or leave empty allow anyone to connect. On servers, a single bot token.
+- `ADMINS` : Optional. List of telegram IDs of users allowed to create links with the bot, seperated by spaces.
+- `ALLOW_PUBLIC` :  Optional. Set this to __true__ to allow anyone to create batch links.
 - `PROTECT_CONTENT`: Optional. Set this to __true__ to prevent users from forwarding/copying content from the bot.
 - `DISABLE_NOTIFICATION`: Optional. Set this to __true__ to send messages without a notification.
 

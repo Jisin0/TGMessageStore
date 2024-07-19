@@ -5,6 +5,8 @@ services:
       BOT_TOKEN: $BOT_TOKEN
       PROTECT_CONTENT: $PROTECT_CONTENT
       DISABLE_NOTIFICATION: $DISABLE_NOTIFICATION
+      ALLOW_PUBLIC: $ALLOW_PUBLIC
+      ADMINS: $ADMINS
     resources:
       cpu: 1000m
       memory: 1Gi

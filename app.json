@@ -14,9 +14,17 @@
             "description": "Your Bot Token From @BotFather",
             "value": ""
         },
+        "ADMINS": {
+           "description": "List of telegram IDs of users allowed to create links with the bot, seperated by spaces.",
+           "value": ""
+        },
         "PROTECT_CONTENT": {
             "description": "Set this to true to prevent users from forwarding/copying content from the bot",
             "value": ""
+        },
+        "ALLOW_PUBLIC": {
+           "description": "Set this to true to allow anyone to create batch links.",
+           "value": ""
         },
         "DISABLE_NOTIFICATION": {
             "description": "Set this to true to send messages without a notification.",

@@ -42,18 +42,6 @@ var Commands map[string]string = map[string]string{
 // Message that is sent when an unrecognized command is sent.
 var CommandNotFound = "<i>😐 I don't recognize that command !\nCheck /help to see how to use me.</i>"
 
-// GetCommand returns the content for a command.
-func GetCommand(command string) (string, [][]gotgbot.InlineKeyboardButton) {
-	command = strings.ToUpper(command)
-
-	text, ok := Commands[command]
-	if !ok {
-		text = CommandNotFound // default msg if not found
-	}
-
-	return text, Buttons[command]
-}
-
 // Batch command texts.
 var (
 	// Unauthorized use of /batch
@@ -89,3 +77,25 @@ Add the bot to your channel and forward the post and use this command as a reply
 <code>/genlink https://t.me/c/123456789/69</code>
 </blockquote>`
 )
+
+// Miscellaneous.
+var (
+	// malformed start link
+	InvalidLink = "<i>I'm sorry there's something wrong with this link 😕</i>"
+	// fetching batch messages
+	StartGetBatch = "<i><b>Fetching your content...</b></i>"
+)
+
+// GetCommand returns the content for a command.
+func GetCommand(command string) (string, [][]gotgbot.InlineKeyboardButton) {
+	command = strings.ToUpper(command)
+
+	text, ok := Commands[command]
+	if !ok {
+		text = CommandNotFound // default msg if not found
+	}
+
+	return text, Buttons[command]
+}
+
+// GetCommandText returns only text for a command.

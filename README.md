@@ -4,7 +4,7 @@
 [![Go Build](https://github.com/Jisin0/TGMessageStore/workflows/build/badge.svg)](https://github.com/Jisin0/TGMessageStore/actions?query=workflow%3Abuild+event%3Apush+branch%3Amain)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-[**TGMessageStore** ](https://TGMessageStore.vercel.app) is a serverless telegram bot to generate permanent shareable links to a single or batch of messages.
+[**TGMessageStore** ](https://tg-message-store.vercel.app) is a serverless telegram bot to generate permanent shareable links to a single or batch of messages.
 
 ## Commands
 ```
@@ -20,6 +20,7 @@ privacy - Read about the privacy policy.
 
 - `BOT_TOKEN`  : Optional. On vercel, a list of bot tokens allowed to connect to the app or leave empty allow anyone to connect. On servers, a single bot token.
 - `ADMINS` : Optional. List of telegram IDs of users allowed to create links with the bot, seperated by spaces.
+
 - `ALLOW_PUBLIC` :  Optional. Set this to __true__ to allow anyone to create batch links.
 - `PROTECT_CONTENT`: Optional. Set this to __true__ to prevent users from forwarding/copying content from the bot.
 - `BATCH_SIZE_LIMIT`: Optional. Maximum number of messages allowed in a batch.

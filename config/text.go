@@ -87,6 +87,10 @@ var (
 	InvalidLink = "<i>I'm sorry there's something wrong with this link 😕</i>"
 	// fetching batch messages
 	StartGetBatch = "<i><b>Fetching your content...</b></i>"
+	// Force Sub Messsage
+	FsubMessage = `<i><b>👋 Hᴇʏ ᴛʜᴇʀᴇ {mention},</b></i>
+Pʟᴇᴀsᴇ <b>ᴊᴏɪɴ</b> ᴍʏ <b>ᴄʜᴀɴɴᴇʟs</b> ᴜsɪɴɢ ᴛʜᴇ ʟɪɴᴋs ʙᴇʟᴏᴡ ᴛᴏ ᴀᴄᴄᴇss ᴛʜɪs ᴄᴏɴᴛᴇɴᴛ 👇
+`
 )
 
 // GetCommand returns the content for a command.

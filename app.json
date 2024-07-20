@@ -1,6 +1,6 @@
 {
     "name": "TGMessageStore",
-    "description": "Inline Telegram bot to Search Multiple Movie Databases",
+    "description": "Telegram Bot to Create Permanent Shareable Links to a Batch of Messages",
     "keywords": [
         "Go",
         "fileshare",

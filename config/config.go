@@ -11,14 +11,18 @@ import (
 	"strings"
 )
 
+const (
+	stringTrue = "true"
+)
+
 var (
-	DBChannel           = int64Environ("DB_CHANNEL")                                              // id of database channel
-	Admins              = int64ListEnviron("ADMINS")                                              // admins list
-	FsubChannels        = int64ListEnviron("FSUB")                                                // list of force subscribe channels
-	BatchSizeLimit      = int64Environ("BATCH_SIZE_LIMIT", 50)                                    // maximum messages allowed in a batch
-	DisableNotification = strings.ToLower(os.Getenv("DISABLE_NOTIFICATION")) == "true"            // messages will be sent without a notification
-	ProtectContent      = strings.ToLower(os.Getenv("PUBLIC_CONTENT")) == "true"                  // disable forwarding content from bot
-	AllowPublic         = strings.ToLower(os.Getenv("ALLOW_PUBLIC")) == "true" || len(Admins) < 1 // indicates wether anyone can use the bot
+	DBChannel           = int64Environ("DB_CHANNEL")                                                  // id of database channel
+	Admins              = int64ListEnviron("ADMINS")                                                  // admins list
+	FsubChannels        = int64ListEnviron("FSUB")                                                    // list of force subscribe channels
+	BatchSizeLimit      = int64Environ("BATCH_SIZE_LIMIT", 50)                                        // maximum messages allowed in a batch
+	DisableNotification = strings.ToLower(os.Getenv("DISABLE_NOTIFICATION")) == stringTrue            // messages will be sent without a notification
+	ProtectContent      = strings.ToLower(os.Getenv("PUBLIC_CONTENT")) == stringTrue                  // disable forwarding content from bot
+	AllowPublic         = strings.ToLower(os.Getenv("ALLOW_PUBLIC")) == stringTrue || len(Admins) < 1 // indicates wether anyone can use the bot
 )
 
 // int64Environ gets a environment variable as an int64.

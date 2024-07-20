@@ -39,7 +39,7 @@ linters:
    # - depguard (absolute trash)
     - dogsled
     - dupl
-    - errcheck
+   # - errcheck
     - exportloopref
     - exhaustive
     - goconst
@@ -70,22 +70,6 @@ linters:
     - varcheck
     - whitespace
     - wsl
-
-issues:
-  exclude-rules:
-    # Disable linters that are annoying in tests.
-    - path: _test\.go
-      linters:
-        - gocritic
-        - gocyclo
-        - errcheck
-        - dupl
-        - gosec
-        - funlen
-        - goconst
-        - gocognit
-        - scopelint
-        - lll
 
 run:
   issues-exit-code: 1

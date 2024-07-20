@@ -23,6 +23,7 @@ func Start(bot *gotgbot.Bot, ctx *ext.Context) error {
 	if len(split) < 2 {
 		text, buttons := config.GetCommand("START")
 		update.Reply(bot, format.BasicFormat(text, user), &gotgbot.SendMessageOpts{ReplyMarkup: gotgbot.InlineKeyboardMarkup{InlineKeyboard: buttons}, ParseMode: gotgbot.ParseModeHTML})
+
 		return nil
 	}
 
@@ -57,6 +58,7 @@ func Start(bot *gotgbot.Bot, ctx *ext.Context) error {
 			buttons = append(buttons, []gotgbot.InlineKeyboardButton{{Text: "ʀᴇᴛʀʏ 🔃", Url: fmt.Sprintf("https://t.me/%s?start=%s", bot.Username, split[1])}})
 
 			update.Reply(bot, format.BasicFormat(config.FsubMessage, user), &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML, ReplyMarkup: gotgbot.InlineKeyboardMarkup{InlineKeyboard: buttons}})
+
 			return nil
 		}
 	}
@@ -65,6 +67,7 @@ func Start(bot *gotgbot.Bot, ctx *ext.Context) error {
 	if err != nil {
 		fmt.Println(err)
 		update.Reply(bot, format.BasicFormat(config.InvalidLink, user), &gotgbot.SendMessageOpts{ParseMode: gotgbot.ParseModeHTML})
+
 		return nil
 	}
 

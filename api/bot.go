@@ -30,6 +30,7 @@ func Bot(w http.ResponseWriter, r *http.Request) {
 	if len(split) < 2 {
 		fmt.Println(w, "url path too short")
 		w.WriteHeader(statusCodeSuccess)
+
 		return
 	}
 

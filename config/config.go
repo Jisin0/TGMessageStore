@@ -12,14 +12,15 @@ import (
 )
 
 const (
-	stringTrue = "true"
+	stringTrue        = "true"
+	defaultBatchLimit = 50
 )
 
 var (
 	DBChannel           = int64Environ("DB_CHANNEL")                                                  // id of database channel
 	Admins              = int64ListEnviron("ADMINS")                                                  // admins list
 	FsubChannels        = int64ListEnviron("FSUB")                                                    // list of force subscribe channels
-	BatchSizeLimit      = int64Environ("BATCH_SIZE_LIMIT", 50)                                        // maximum messages allowed in a batch
+	BatchSizeLimit      = int64Environ("BATCH_SIZE_LIMIT", defaultBatchLimit)                         // maximum messages allowed in a batch
 	DisableNotification = strings.ToLower(os.Getenv("DISABLE_NOTIFICATION")) == stringTrue            // messages will be sent without a notification
 	ProtectContent      = strings.ToLower(os.Getenv("PUBLIC_CONTENT")) == stringTrue                  // disable forwarding content from bot
 	AllowPublic         = strings.ToLower(os.Getenv("ALLOW_PUBLIC")) == stringTrue || len(Admins) < 1 // indicates wether anyone can use the bot

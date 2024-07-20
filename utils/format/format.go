@@ -40,6 +40,7 @@ func FormatString(format string, values map[string]any) string {
 			i += end + 1
 		} else {
 			result.WriteByte(format[i])
+
 			i++
 		}
 	}

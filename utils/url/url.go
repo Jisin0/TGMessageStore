@@ -79,5 +79,4 @@ func decodeCodexData(input string) (chatID, startMsgID, endMsgID int64, err erro
 	dbChannelAbs := int64(math.Abs(float64(config.DBChannel)))
 
 	return config.DBChannel, sIDRaw / dbChannelAbs, eIDRaw / dbChannelAbs, nil
-
 }

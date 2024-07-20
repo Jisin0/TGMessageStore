@@ -36,7 +36,7 @@ var Commands map[string]string = map[string]string{
 /privacy: Learn how this bot uses your data.
 `,
 
-	"PRIVACY": `<i>This bot does not connect to any datbase and hence <b>does not store any user data</b> in any form.</i>`,
+	"PRIVACY": `<i>This bot does not connect to any database and hence <b>does not store any user data</b> in any form.</i>`,
 }
 
 // Message that is sent when an unrecognized command is sent.

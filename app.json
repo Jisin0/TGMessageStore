@@ -35,6 +35,10 @@
         "BATCH_SIZE_LIMIT": {
             "description": "Maximum number of messages allowed in a batch.",
             "value": ""
+        },
+        "FSUB": {
+            "description": "List of IDs of channels the user must join to get content, seperated by spaces.",
+            "value": ""
         }
     },
     "buildpacks": [

@@ -8,6 +8,7 @@ services:
       ALLOW_PUBLIC: $ALLOW_PUBLIC
       ADMINS: $ADMINS
       BATCH_SIZE_LIMIT: $BATCH_SIZE_LIMIT
+      FSUB: $FSUB
     resources:
       cpu: 1000m
       memory: 1Gi

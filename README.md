@@ -17,6 +17,18 @@ privacy - Read about the privacy policy.
 id - Get user id or forwarded channel id.
 ```
 
+## Features
+
+[X] Batch Link
+[X] Single Link
+[X] Unlimited Force Subscribe
+[X] Protect Content
+[X] Comaptible With CodeX Links
+[X] Disable Notification
+[X] Unlimited Bots
+[X] Easy Customization
+[X] Fully Serverless
+
 ## Variables
 
 - `BOT_TOKEN`  : Optional. On vercel, a list of bot tokens allowed to connect to the app or leave empty allow anyone to connect. On servers, a single bot token.

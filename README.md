@@ -19,15 +19,15 @@ id - Get user id or forwarded channel id.
 
 ## Features
 
-[X] Batch Link
-[X] Single Link
-[X] Unlimited Force Subscribe
-[X] Protect Content
-[X] Comaptible With CodeX Links
-[X] Disable Notification
-[X] Unlimited Bots
-[X] Easy Customization
-[X] Fully Serverless
+- [X] Batch Link
+- [X] Single Link
+- [X] Unlimited Force Subscribe
+- [X] Protect Content
+- [X] Comaptible With CodeX Links
+- [X] Disable Notification
+- [X] Unlimited Bots
+- [X] Easy Customization
+- [X] Fully Serverless
 
 ## Variables
 

@@ -33,6 +33,7 @@ func init() {
 	Dispatcher.AddHandlerToGroup(handlers.NewCommand("start", Start), commandHandlerGroup)
 	Dispatcher.AddHandlerToGroup(handlers.NewCommand("batch", Batch), commandHandlerGroup)
 	Dispatcher.AddHandlerToGroup(handlers.NewCommand("genlink", GenLink), commandHandlerGroup)
+	Dispatcher.AddHandlerToGroup(handlers.NewCommand("id", ID), commandHandlerGroup)
 	Dispatcher.AddHandlerToGroup(handlers.NewMessage(allCommand, CommandHandler), commandHandlerGroup) // handles all other unhandled commands
 
 	Dispatcher.AddHandlerToGroup(handlers.NewCallback(callbackquery.Prefix("cmd_"), CbCommand), callbackHandlerGroup)

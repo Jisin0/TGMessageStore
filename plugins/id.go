@@ -19,25 +19,27 @@ func ID(bot *gotgbot.Bot, ctx *ext.Context) error {
 
 	var output strings.Builder
 
-	output.WriteString(fmt.Sprintf("Sender ID : <code>%d</code>", sender.Id()))
+	output.WriteString(fmt.Sprintf("<b>Sender ID</b> : <code>%d</code>\n", sender.Id()))
 
-	if forward := update.ForwardOrigin; forward != nil {
-		merged := forward.MergeMessageOrigin()
+	if reply := update.ReplyToMessage; reply != nil {
+		if forward := reply.ForwardOrigin; forward != nil {
+			merged := forward.MergeMessageOrigin()
 
-		if merged.Chat != nil {
-			output.WriteString(fmt.Sprintf("Forwarded From : <code>%d</code>", merged.Chat.Id))
-		}
+			if merged.Chat != nil {
+				output.WriteString(fmt.Sprintf("<b>Forwarded From</b> : <code>%d</code>\n", merged.Chat.Id))
+			}
 
-		if merged.SenderChat != nil {
-			output.WriteString(fmt.Sprintf("Forwarded Group : <code>%d</code>", merged.SenderChat.Id))
-		}
+			if merged.SenderChat != nil {
+				output.WriteString(fmt.Sprintf("<b>Forwarded Group</b> : <code>%d</code>\n", merged.SenderChat.Id))
+			}
 
-		if merged.SenderUser != nil {
-			output.WriteString(fmt.Sprintf("Forwarded User : <code>%d</code>", merged.SenderUser.Id))
-		}
+			if merged.SenderUser != nil {
+				output.WriteString(fmt.Sprintf("<b>Forwarded User</b> : <code>%d</code>\n", merged.SenderUser.Id))
+			}
 
-		if merged.SenderUserName != "" {
-			output.WriteString(fmt.Sprintf("Forwarded Username : <code>%s</code>", merged.SenderUserName))
+			if merged.SenderUserName != "" {
+				output.WriteString(fmt.Sprintf("<b>Forwarded Username</b> : <code>%s</code>\n", merged.SenderUserName))
+			}
 		}
 	}
 

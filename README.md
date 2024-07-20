@@ -14,6 +14,7 @@ genlink - Create a link for a single message.
 about - Basic Information About the bot.
 help - Short Guide on How to Use the Bot.
 privacy - Read about the privacy policy.
+id - Get user id or forwarded channel id.
 ```
 
 ## Variables

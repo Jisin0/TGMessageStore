@@ -118,6 +118,11 @@ go build .
 </p>
 </details>
 
+## Formatting
+
+All texts located in the [/config/text.go](/config/text.go) file can be customized using the __mention__, __user_id__ and __name__ values.
+Example: ```Hey {mention} this is a start message!```
+
 ## Thanks
 
  - Thanks to Paul for his awesome [Library](https://github.com/PaulSonOfLars/gotgbot)

@@ -39,6 +39,10 @@
         "FSUB": {
             "description": "List of IDs of channels the user must join to get content, seperated by spaces.",
             "value": ""
+        },
+        "DB_CHANNEL": {
+            "description": "Database channel only used for backward compatibilty with codex links.",
+            "value": ""
         }
     },
     "buildpacks": [

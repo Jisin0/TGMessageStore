@@ -9,6 +9,7 @@ services:
       ADMINS: $ADMINS
       BATCH_SIZE_LIMIT: $BATCH_SIZE_LIMIT
       FSUB: $FSUB
+      DB_CHANNEL: $DB_CHANNEL
     resources:
       cpu: 1000m
       memory: 1Gi

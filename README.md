@@ -38,6 +38,7 @@ id - Get user id or forwarded channel id.
 - `PROTECT_CONTENT`: Optional. Set this to __true__ to prevent users from forwarding/copying content from the bot.
 - `BATCH_SIZE_LIMIT`: Optional. Maximum number of messages allowed in a batch.
 - `DISABLE_NOTIFICATION`: Optional. Set this to __true__ to send messages without a notification.
+- `DB_CHANNEL` : Database channel only used for backward compatibilty with codex links.
 
 ## Deploy
 Deploy your own **TGMessageStore** app to vercel

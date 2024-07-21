@@ -31,6 +31,8 @@ id - Get user id or forwarded channel id.
 
 ## Variables
 
+Variables can also be loaded by creating a ```config.env``` file at the root of the repository. See [sample.config.env](/sample.config.env) to see the format to use.
+
 - `BOT_TOKEN`  : Optional. On vercel, a list of bot tokens allowed to connect to the app or leave empty allow anyone to connect. On servers, a single bot token.
 - `ADMINS` : Optional. List of telegram IDs of users allowed to create links with the bot, seperated by spaces.
 - `FSUB` : Optional. List of IDs of channels the user must join to get content, seperated by spaces.

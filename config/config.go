@@ -9,6 +9,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/joho/godotenv"
 )
 
 const (
@@ -17,14 +19,29 @@ const (
 )
 
 var (
-	DBChannel           = int64Environ("DB_CHANNEL")                                                  // id of database channel
-	Admins              = int64ListEnviron("ADMINS")                                                  // admins list
-	FsubChannels        = int64ListEnviron("FSUB")                                                    // list of force subscribe channels
-	BatchSizeLimit      = int64Environ("BATCH_SIZE_LIMIT", defaultBatchLimit)                         // maximum messages allowed in a batch
-	DisableNotification = strings.ToLower(os.Getenv("DISABLE_NOTIFICATION")) == stringTrue            // messages will be sent without a notification
-	ProtectContent      = strings.ToLower(os.Getenv("PUBLIC_CONTENT")) == stringTrue                  // disable forwarding content from bot
-	AllowPublic         = strings.ToLower(os.Getenv("ALLOW_PUBLIC")) == stringTrue || len(Admins) < 1 // indicates wether anyone can use the bot
+	DBChannel           int64   // id of database channel
+	Admins              []int64 // admins list
+	FsubChannels        []int64 // list of force subscribe channels
+	BatchSizeLimit      int64   // maximum messages allowed in a batch
+	DisableNotification bool    // messages will be sent without a notification
+	ProtectContent      bool    // disable forwarding content from bot
+	AllowPublic         bool    // indicates wether anyone can use the bot
 )
+
+func init() {
+	err := godotenv.Load("config.env")
+	if err == nil {
+		fmt.Println("configs loaded from config.env file")
+	}
+
+	DBChannel = int64Environ("DB_CHANNEL")
+	Admins = int64ListEnviron("ADMINS")
+	FsubChannels = int64ListEnviron("FSUB")
+	BatchSizeLimit = int64Environ("BATCH_SIZE_LIMIT", defaultBatchLimit)
+	DisableNotification = strings.ToLower(os.Getenv("DISABLE_NOTIFICATION")) == stringTrue
+	ProtectContent = strings.ToLower(os.Getenv("PUBLIC_CONTENT")) == stringTrue
+	AllowPublic = strings.ToLower(os.Getenv("ALLOW_PUBLIC")) == stringTrue || len(Admins) < 1
+}
 
 // int64Environ gets a environment variable as an int64.
 func int64Environ(envVar string, defaultVal ...int64) int64 {

@@ -20,3 +20,6 @@ go.work.sum
 
 # Vscode workspace configs
 /.vscode
+
+# Local environment configs
+config.env

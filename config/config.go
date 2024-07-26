@@ -21,6 +21,7 @@ const (
 var (
 	DBChannel           int64   // id of database channel
 	Admins              []int64 // admins list
+	AutoDelete          int64   // minutes after which batch content is autodeleted
 	FsubChannels        []int64 // list of force subscribe channels
 	BatchSizeLimit      int64   // maximum messages allowed in a batch
 	DisableNotification bool    // messages will be sent without a notification
@@ -37,6 +38,7 @@ func init() {
 	DBChannel = int64Environ("DB_CHANNEL")
 	Admins = int64ListEnviron("ADMINS")
 	FsubChannels = int64ListEnviron("FSUB")
+	AutoDelete = int64Environ("AUTO_DELETE")
 	BatchSizeLimit = int64Environ("BATCH_SIZE_LIMIT", defaultBatchLimit)
 	DisableNotification = strings.ToLower(os.Getenv("DISABLE_NOTIFICATION")) == stringTrue
 	ProtectContent = strings.ToLower(os.Getenv("PUBLIC_CONTENT")) == stringTrue

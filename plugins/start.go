@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/Jisin0/TGMessageStore/config"
+	"github.com/Jisin0/TGMessageStore/utils/autodelete"
 	"github.com/Jisin0/TGMessageStore/utils/format"
 	"github.com/Jisin0/TGMessageStore/utils/url"
 	"github.com/PaulSonOfLars/gotgbot/v2"
@@ -89,8 +90,10 @@ func sendBatch(bot *gotgbot.Bot, inputMessage *gotgbot.Message, chatID, startID,
 		return
 	}
 
+	targetChatID := inputMessage.Chat.Id // receiving party's id
+
 	for i := startID; i <= endID; i++ {
-		_, err := bot.CopyMessage(inputMessage.Chat.Id, chatID, i, &gotgbot.CopyMessageOpts{ProtectContent: config.ProtectContent, DisableNotification: config.DisableNotification})
+		m, err := bot.CopyMessage(targetChatID, chatID, i, &gotgbot.CopyMessageOpts{ProtectContent: config.ProtectContent, DisableNotification: config.DisableNotification})
 		if err != nil {
 			switch {
 			case strings.Contains(err.Error(), "chat not found"):
@@ -105,6 +108,8 @@ func sendBatch(bot *gotgbot.Bot, inputMessage *gotgbot.Message, chatID, startID,
 				fmt.Printf("sendBatch: unknown error: %v", err)
 			}
 		}
+
+		autodelete.InsertAutodel(autodelete.AutodelData{ChatID: targetChatID, MessageID: m.MessageId})
 	}
 
 	statMessage.Delete(bot, &gotgbot.DeleteMessageOpts{})

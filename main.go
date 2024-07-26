@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/Jisin0/TGMessageStore/plugins"
+	"github.com/Jisin0/TGMessageStore/utils/autodelete"
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 )
@@ -74,6 +75,9 @@ func main() {
 	}
 
 	fmt.Printf("@%s Started !\n", b.User.Username)
+
+	// Run autodelete ticker.
+	go autodelete.RunAutodel(b)
 
 	// Idle, to keep updates coming in, and avoid bot stopping.
 	updater.Idle()

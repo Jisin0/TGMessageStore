@@ -23,3 +23,6 @@ go.work.sum
 
 # Local environment configs
 config.env
+
+# Cache file from autodelete
+cache.sqlite

@@ -30,9 +30,9 @@ var (
 )
 
 func init() {
-	err := godotenv.Load("config.env")
+	err := godotenv.Load(".env", "config.env") // config.env is deprecated and only for backward compatibiity
 	if err == nil {
-		fmt.Println("configs loaded from config.env file")
+		fmt.Println("configs loaded from .env file")
 	}
 
 	DBChannel = int64Environ("DB_CHANNEL")

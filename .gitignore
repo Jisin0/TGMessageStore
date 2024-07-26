@@ -22,7 +22,7 @@ go.work.sum
 /.vscode
 
 # Local environment configs
-config.env
+.env
 
 # Cache file from autodelete
 cache.sqlite

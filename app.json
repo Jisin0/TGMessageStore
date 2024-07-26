@@ -28,6 +28,10 @@
            "description": "Set this to true to allow anyone to create batch links.",
            "value": ""
         },
+        "AUTO_DELETE": {
+            "description": "Number of minutes after which messages should be automatically deleted.",
+            "value": ""
+        },
         "DISABLE_NOTIFICATION": {
             "description": "Set this to true to send messages without a notification.",
             "value": ""

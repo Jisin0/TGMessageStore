@@ -10,6 +10,7 @@ services:
       BATCH_SIZE_LIMIT: $BATCH_SIZE_LIMIT
       FSUB: $FSUB
       DB_CHANNEL: $DB_CHANNEL
+      AUTO_DELETE: $AUTO_DELETE
     resources:
       cpu: 1000m
       memory: 1Gi
